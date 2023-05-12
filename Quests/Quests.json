@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"scene": "res://Quests/CleaningForest/CleaningForest.tscn",
+		"title": "Forest",
+		"message": "The forest is full of trash... Maybe you can do something about it?\nCost: %s coins\nReward: %s hearts",
+		"cost": 30,
+		"reward": 10,
+		"is_done": false
+	},
+	{
+		"id": 2,
+		"scene": "res://Quests/CleaningForest/CleaningForest.tscn",
+		"title": "Forest",
+		"message": "TEST",
+		"cost": 50,
+		"reward": 15,
+		"is_done": false
+	}
+]

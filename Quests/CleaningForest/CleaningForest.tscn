@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://usg43mflolg5"]
+[gd_scene load_steps=13 format=3 uid="uid://dpcj48yq6gy8d"]
 
-[ext_resource type="Script" path="res://Minigames/CleaningForest.gd" id="1_1i8oj"]
-[ext_resource type="Texture2D" uid="uid://b4tshokooae7h" path="res://Art/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="1_3w3p4"]
-[ext_resource type="Script" path="res://Minigames/Trash.gd" id="2_2ostk"]
-[ext_resource type="Texture2D" uid="uid://dl1i8mrty4ao3" path="res://Art/items/trash-1.png" id="2_rm2f5"]
-[ext_resource type="Texture2D" uid="uid://cwk23ls803bho" path="res://Art/items/trash-2.png" id="3_lqsd5"]
+[ext_resource type="Script" path="res://Quests/CleaningForest/CleaningForest.gd" id="1_p2omm"]
+[ext_resource type="Texture2D" uid="uid://b4tshokooae7h" path="res://Art/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="2_tkbbu"]
+[ext_resource type="Script" path="res://Quests/CleaningForest/Trash.gd" id="3_13u56"]
+[ext_resource type="Texture2D" uid="uid://dl1i8mrty4ao3" path="res://Art/items/trash-1.png" id="4_8f7wq"]
+[ext_resource type="Script" path="res://Quests/Scripts/AttachableObject.gd" id="5_w2muv"]
+[ext_resource type="Texture2D" uid="uid://cwk23ls803bho" path="res://Art/items/trash-2.png" id="6_62ymh"]
+[ext_resource type="Texture2D" uid="uid://bkm5dnyqg2mt1" path="res://Art/items/trash_stick.png" id="7_fy3yl"]
+[ext_resource type="Script" path="res://Quests/Scripts/AttachingItems.gd" id="8_6s7rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbo6h"]
-texture = ExtResource("1_3w3p4")
+texture = ExtResource("2_tkbbu")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
@@ -1814,9 +1817,17 @@ texture = ExtResource("1_3w3p4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rbo6h")
 
-[node name="CleaningForest" type="Node2D"]
-script = ExtResource("1_1i8oj")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmx7f"]
+size = Vector2(13, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuytl"]
+size = Vector2(12, 13)
+
+[node name="CleaningForest" type="Node2D" node_paths=PackedStringArray("trash_stick")]
+script = ExtResource("1_p2omm")
 quest_id = 1
+trash_stick = NodePath("TrackStick")
+trash_to_collect = 17
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xe6uy")
@@ -1835,76 +1846,245 @@ layer_1/tile_data = PackedInt32Array(-131081, 1310720, 50, -131076, 1703936, 32,
 zoom = Vector2(4, 4)
 
 [node name="Trash" type="Node2D" parent="."]
-position = Vector2(-85, -13)
-script = ExtResource("2_2ostk")
+script = ExtResource("3_13u56")
 
 [node name="Trash-1" type="Sprite2D" parent="Trash"]
-position = Vector2(-6, 82)
-texture = ExtResource("2_rm2f5")
+position = Vector2(-91, 70)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-17" type="Sprite2D" parent="Trash"]
-position = Vector2(-37, -62)
-texture = ExtResource("2_rm2f5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-1"]
 
-[node name="Trash-3" type="Sprite2D" parent="Trash"]
-position = Vector2(76, 74)
-texture = ExtResource("2_rm2f5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-1/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
 
-[node name="Trash-4" type="Sprite2D" parent="Trash"]
-position = Vector2(154, 8)
-texture = ExtResource("2_rm2f5")
+[node name="Trash-18" type="Sprite2D" parent="Trash"]
+position = Vector2(-122, -74)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-5" type="Sprite2D" parent="Trash"]
-position = Vector2(101, -40)
-texture = ExtResource("2_rm2f5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-18"]
 
-[node name="Trash-15" type="Sprite2D" parent="Trash"]
-position = Vector2(168, -49)
-texture = ExtResource("2_rm2f5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-18/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
 
-[node name="Trash-6" type="Sprite2D" parent="Trash"]
-position = Vector2(33, -53)
-texture = ExtResource("2_rm2f5")
+[node name="Trash-19" type="Sprite2D" parent="Trash"]
+position = Vector2(-52, -65)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-7" type="Sprite2D" parent="Trash"]
-position = Vector2(193, 85)
-texture = ExtResource("2_rm2f5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-19"]
 
-[node name="Trash-2" type="Sprite2D" parent="Trash"]
-position = Vector2(23, 5)
-texture = ExtResource("3_lqsd5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-19/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
 
-[node name="Trash-8" type="Sprite2D" parent="Trash"]
-position = Vector2(-23, -59)
-texture = ExtResource("3_lqsd5")
+[node name="Trash-20" type="Sprite2D" parent="Trash"]
+position = Vector2(16, -52)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-9" type="Sprite2D" parent="Trash"]
-position = Vector2(-47, -7)
-texture = ExtResource("3_lqsd5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-20"]
 
-[node name="Trash-10" type="Sprite2D" parent="Trash"]
-position = Vector2(79, 31)
-texture = ExtResource("3_lqsd5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-20/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
 
-[node name="Trash-11" type="Sprite2D" parent="Trash"]
-position = Vector2(217, -1)
-texture = ExtResource("3_lqsd5")
+[node name="Trash-21" type="Sprite2D" parent="Trash"]
+position = Vector2(69, -4)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-12" type="Sprite2D" parent="Trash"]
-position = Vector2(156, -57)
-texture = ExtResource("3_lqsd5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-21"]
 
-[node name="Trash-13" type="Sprite2D" parent="Trash"]
-position = Vector2(141, 46)
-texture = ExtResource("3_lqsd5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-21/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
 
-[node name="Trash-16" type="Sprite2D" parent="Trash"]
-position = Vector2(203, 74)
-texture = ExtResource("3_lqsd5")
+[node name="Trash-22" type="Sprite2D" parent="Trash"]
+position = Vector2(83, -61)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
 
-[node name="Trash-14" type="Sprite2D" parent="Trash"]
-position = Vector2(142, -60)
-texture = ExtResource("3_lqsd5")
+[node name="Area2D" type="Area2D" parent="Trash/Trash-22"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-22/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-23" type="Sprite2D" parent="Trash"]
+position = Vector2(108, 74)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-23"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-23/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-24" type="Sprite2D" parent="Trash"]
+position = Vector2(-9, 62)
+texture = ExtResource("4_8f7wq")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-24"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-24/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-25" type="Sprite2D" parent="Trash"]
+position = Vector2(-62, -7)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-25"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-25/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-26" type="Sprite2D" parent="Trash"]
+position = Vector2(-132, -19)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-26"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-26/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-27" type="Sprite2D" parent="Trash"]
+position = Vector2(-6, 19)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-27"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-27/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-28" type="Sprite2D" parent="Trash"]
+position = Vector2(-108, -71)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-28"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-28/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-29" type="Sprite2D" parent="Trash"]
+position = Vector2(56, 34)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-29"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-29/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-30" type="Sprite2D" parent="Trash"]
+position = Vector2(118, 62)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-30"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-30/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-31" type="Sprite2D" parent="Trash"]
+position = Vector2(132, -13)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-31"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-31/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-32" type="Sprite2D" parent="Trash"]
+position = Vector2(71, -69)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-32"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-32/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="Trash-33" type="Sprite2D" parent="Trash"]
+position = Vector2(57, -72)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-33"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-33/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
+[node name="TrackStick" type="Sprite2D" parent="." node_paths=PackedStringArray("attachable_objects")]
+position = Vector2(0, 1)
+texture = ExtResource("7_fy3yl")
+offset = Vector2(8, 7)
+script = ExtResource("8_6s7rg")
+attachable_objects = NodePath("../Trash")
+
+[node name="TrashBin" type="Area2D" parent="."]
+position = Vector2(-136, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashBin"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_wuytl")
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="ready" from="Trash" to="Trash" method="_on_ready"]
+[connection signal="mouse_entered" from="Trash/Trash-1/Area2D" to="Trash/Trash-1" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-1/Area2D" to="Trash/Trash-1" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-18/Area2D" to="Trash/Trash-18" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-18/Area2D" to="Trash/Trash-18" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-19/Area2D" to="Trash/Trash-19" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-19/Area2D" to="Trash/Trash-19" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-20/Area2D" to="Trash/Trash-20" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-20/Area2D" to="Trash/Trash-20" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-21/Area2D" to="Trash/Trash-21" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-21/Area2D" to="Trash/Trash-21" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-22/Area2D" to="Trash/Trash-22" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-22/Area2D" to="Trash/Trash-22" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-23/Area2D" to="Trash/Trash-23" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-23/Area2D" to="Trash/Trash-23" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-24/Area2D" to="Trash/Trash-24" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-24/Area2D" to="Trash/Trash-24" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-25/Area2D" to="Trash/Trash-25" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-25/Area2D" to="Trash/Trash-25" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-26/Area2D" to="Trash/Trash-26" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-26/Area2D" to="Trash/Trash-26" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-27/Area2D" to="Trash/Trash-27" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-27/Area2D" to="Trash/Trash-27" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-28/Area2D" to="Trash/Trash-28" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-28/Area2D" to="Trash/Trash-28" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-29/Area2D" to="Trash/Trash-29" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-29/Area2D" to="Trash/Trash-29" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-30/Area2D" to="Trash/Trash-30" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-30/Area2D" to="Trash/Trash-30" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-31/Area2D" to="Trash/Trash-31" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-31/Area2D" to="Trash/Trash-31" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-32/Area2D" to="Trash/Trash-32" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-32/Area2D" to="Trash/Trash-32" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-33/Area2D" to="Trash/Trash-33" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-33/Area2D" to="Trash/Trash-33" method="_on_area_2d_mouse_exited"]
+[connection signal="draw" from="TrackStick" to="TrackStick" method="_on_draw"]
+[connection signal="mouse_entered" from="TrashBin" to="." method="_on_trash_bin_mouse_entered"]
+[connection signal="mouse_exited" from="TrashBin" to="." method="_on_trash_bin_mouse_exited"]

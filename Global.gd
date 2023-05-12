@@ -1,8 +1,15 @@
 extends Node
 
-var main_scene = "res://Game.tscn"
+var main_scene = "res://Scenes/Game.tscn"
 var player_position: Vector2 = Vector2(300, 50)
 var current_scene = null
+
+var coin_counter = 100
+var heart_counter = 0
+var time_left = 60
+
+func _physics_process(delta):
+	time_left -= delta
 
 func _ready():
 	var root = get_tree().get_root()

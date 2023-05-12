@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="ChangingTheWorld"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Scenes/Game.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Global.gd"
-Quests="*res://Quests.gd"
+Quests="*res://Quests/Quests.gd"
 
 [input]
 
@@ -54,6 +54,6 @@ left_mouse={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/canvas_textures/default_texture_filter=0

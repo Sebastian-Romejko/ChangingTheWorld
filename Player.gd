@@ -6,22 +6,25 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+var can_move = true
+
 func _ready():
 	update_animation_parameters(starting_direction)
 
 func _physics_process(_delta):
-	var input_direction = Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up"),
-	)
-	
-	update_animation_parameters(input_direction)
-	
-	velocity = input_direction * move_speed
-	
-	move_and_slide()
-	
-	pick_new_state();
+	if can_move:
+		var input_direction = Vector2(
+			Input.get_action_strength("right") - Input.get_action_strength("left"),
+			Input.get_action_strength("down") - Input.get_action_strength("up"),
+		)
+		
+		update_animation_parameters(input_direction)
+		
+		velocity = input_direction * move_speed
+		
+		move_and_slide()
+		
+		pick_new_state();
 	
 
 func update_animation_parameters(move_input : Vector2):
