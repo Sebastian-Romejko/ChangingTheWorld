@@ -48,7 +48,7 @@ script = ExtResource("1_s4y40")
 texture = ExtResource("2_obybj")
 hframes = 2
 vframes = 2
-frame = 2
+frame = 3
 
 [node name="Area2D" type="Area2D" parent="."]
 

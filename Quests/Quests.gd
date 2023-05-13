@@ -17,3 +17,7 @@ func get_quest(id: int):
 
 func is_quest_done(id: int):
 	return quests[id - 1].is_done
+	
+func prepare_game():
+	var json_file = FileAccess.open("res://Quests/Quests.json", FileAccess.READ).get_as_text()
+	quests = JSON.parse_string(json_file)

@@ -12,5 +12,4 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Player" && Quests.is_quest_done(quest_id):
-		#game.set_quest_done(quest_id, self)
-		self.queue_free()
+		self.visible = false

@@ -4,17 +4,53 @@
 		"scene": "res://Quests/CleaningForest/CleaningForest.tscn",
 		"title": "Forest",
 		"message": "The forest is full of trash... Maybe you can do something about it?\nCost: %s coins\nReward: %s hearts",
+		"cost": 100,
+		"reward": 40,
+		"is_done": false
+	},
+	{
+		"id": 2,
+		"scene": "res://Quests/WateringFlowers/WateringFlowers.tscn",
+		"title": "Park",
+		"message": "Those flowers are dying! Someone has to give them some water!\nCost: %s coins\nReward: %s hearts",
+		"cost": 70,
+		"reward": 25,
+		"is_done": false
+	},
+	{
+		"id": 3,
+		"scene": "",
+		"title": "Doctor",
+		"message": "I have to go to the doctor with my teeth. I have troubles even with eating... But nowadays doctors are so expensive...\nCost: %s coins\nReward: %s hearts",
+		"cost": 50,
+		"reward": 15,
+		"is_done": false
+	},
+	{
+		"id": 4,
+		"scene": "",
+		"title": "Animals",
+		"message": "Hi! We're currently raising money for our local animal shelter. Would you like to contribute and improve life contitions for those poor animals?\nCost: %s coins\nReward: %s hearts",
 		"cost": 30,
 		"reward": 10,
 		"is_done": false
 	},
 	{
-		"id": 2,
-		"scene": "res://Quests/CleaningForest/CleaningForest.tscn",
-		"title": "Forest",
-		"message": "TEST",
-		"cost": 50,
-		"reward": 15,
+		"id": 5,
+		"scene": "",
+		"title": "Petition",
+		"message": "Good morning sir! We're running campain that will impose fines on large companies for non-ecological actions. Would you like to sign the  petition?\nCost: %s coins\nReward: %s hearts",
+		"cost": 0,
+		"reward": 5,
+		"is_done": false
+	},
+	{
+		"id": 6,
+		"scene": "res://Quests/BuildingSwing/BuildingSwing.tscn",
+		"title": "Swing",
+		"message": "Kids don't have a place where they could play. But you can change that in just a few moments!\nCost: %s coins\nReward: %s hearts",
+		"cost": 60,
+		"reward": 20,
 		"is_done": false
 	}
 ]

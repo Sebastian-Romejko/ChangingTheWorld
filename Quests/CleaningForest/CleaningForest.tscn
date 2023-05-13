@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpcj48yq6gy8d"]
+[gd_scene load_steps=14 format=3 uid="uid://dpcj48yq6gy8d"]
 
 [ext_resource type="Script" path="res://Quests/CleaningForest/CleaningForest.gd" id="1_p2omm"]
 [ext_resource type="Texture2D" uid="uid://b4tshokooae7h" path="res://Art/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="2_tkbbu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwk23ls803bho" path="res://Art/items/trash-2.png" id="6_62ymh"]
 [ext_resource type="Texture2D" uid="uid://bkm5dnyqg2mt1" path="res://Art/items/trash_stick.png" id="7_fy3yl"]
 [ext_resource type="Script" path="res://Quests/Scripts/AttachingItems.gd" id="8_6s7rg"]
+[ext_resource type="PackedScene" uid="uid://b30un2wr7q785" path="res://Scenes/UI.tscn" id="9_qc8lf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbo6h"]
 texture = ExtResource("2_tkbbu")
@@ -1827,7 +1828,7 @@ size = Vector2(12, 13)
 script = ExtResource("1_p2omm")
 quest_id = 1
 trash_stick = NodePath("TrackStick")
-trash_to_collect = 17
+trash_to_collect = 15
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xe6uy")
@@ -1860,6 +1861,7 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_fmx7f")
 
 [node name="Trash-18" type="Sprite2D" parent="Trash"]
+visible = false
 position = Vector2(-122, -74)
 texture = ExtResource("4_8f7wq")
 script = ExtResource("5_w2muv")
@@ -1970,6 +1972,7 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_fmx7f")
 
 [node name="Trash-28" type="Sprite2D" parent="Trash"]
+visible = false
 position = Vector2(-108, -71)
 texture = ExtResource("6_62ymh")
 script = ExtResource("5_w2muv")
@@ -2048,6 +2051,21 @@ position = Vector2(-136, 39)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrashBin"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_wuytl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("9_qc8lf")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 1
+show_only_time = true
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="ready" from="Trash" to="Trash" method="_on_ready"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://4eico10nryp4"]
+
+[ext_resource type="Script" path="res://Quests/BuildingSwing/BuildingSwing.gd" id="1_qn7hu"]
+[ext_resource type="TileSet" uid="uid://cryiq527h0mb2" path="res://Art/Map.tres" id="2_jklm7"]
+[ext_resource type="Texture2D" uid="uid://b51op5ftatl0i" path="res://Art/items/tree.png" id="3_gdsvu"]
+[ext_resource type="Texture2D" uid="uid://cf7r8044ryvp8" path="res://Art/items/rope.png" id="4_3v3rq"]
+[ext_resource type="Script" path="res://Quests/BuildingSwing/Items.gd" id="5_0qjra"]
+[ext_resource type="Texture2D" uid="uid://b7pbql5mohdab" path="res://Art/items/wooden-plank.png" id="6_iw3qc"]
+[ext_resource type="Script" path="res://Quests/Scripts/AttachableObject.gd" id="7_0wk4y"]
+[ext_resource type="Texture2D" uid="uid://dx5idvlpvyevf" path="res://Art/items/nail.png" id="8_y345w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51hnl"]
+size = Vector2(31.6632, 12.4632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmmbd"]
+size = Vector2(8, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88fox"]
+size = Vector2(91, 31)
+
+[node name="BuildingSwing" type="Node2D"]
+script = ExtResource("1_qn7hu")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1, 0)
+tile_set = ExtResource("2_jklm7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-327690, 327680, 51, -262154, 327680, 51, -196618, 327680, 51, -131082, 327680, 51, -65546, 327680, 51, -10, 327680, 51, 65526, 327680, 51, 131062, 327680, 51, 196598, 327680, 51, 262134, 327680, 51, 327670, 327680, 51, 393206, 327680, 51, -327689, 327680, 51, -262153, 327680, 51, -196617, 327680, 51, -131081, 327680, 51, -65545, 327680, 51, -9, 327680, 51, 65527, 327680, 51, 131063, 327680, 51, 196599, 327680, 51, 262135, 327680, 51, 327671, 327680, 51, 393207, 327680, 51, -327688, 327680, 51, -262152, 327680, 51, -196616, 327680, 51, -131080, 327680, 51, -65544, 327680, 51, -8, 327680, 51, 65528, 327680, 51, 131064, 327680, 51, 196600, 327680, 51, 262136, 327680, 51, 327672, 327680, 51, 393208, 327680, 51, -327687, 327680, 51, -262151, 327680, 51, -196615, 327680, 51, -131079, 327680, 51, -65543, 327680, 51, -7, 327680, 51, 65529, 327680, 51, 131065, 327680, 51, 196601, 327680, 51, 262137, 327680, 51, 327673, 327680, 51, 393209, 327680, 51, -327686, 327680, 51, -262150, 327680, 51, -196614, 327680, 51, -131078, 327680, 51, -65542, 327680, 51, -6, 327680, 51, 65530, 327680, 51, 131066, 327680, 51, 196602, 327680, 51, 262138, 327680, 51, 327674, 327680, 51, 393210, 327680, 51, -327685, 327680, 51, -262149, 327680, 51, -196613, 327680, 51, -131077, 327680, 51, -65541, 327680, 51, -5, 327680, 51, 65531, 327680, 51, 131067, 327680, 51, 196603, 327680, 51, 262139, 327680, 51, 327675, 327680, 51, 393211, 327680, 51, -327684, 327680, 51, -262148, 327680, 51, -196612, 327680, 51, -131076, 327680, 51, -65540, 327680, 51, -4, 327680, 51, 65532, 327680, 51, 131068, 327680, 51, 196604, 327680, 51, 262140, 327680, 51, 327676, 327680, 51, 393212, 327680, 51, -327683, 327680, 51, -262147, 327680, 51, -196611, 327680, 51, -131075, 327680, 51, -65539, 327680, 51, -3, 327680, 51, 65533, 327680, 51, 131069, 327680, 51, 196605, 327680, 51, 262141, 327680, 51, 327677, 327680, 51, 393213, 327680, 51, -327682, 327680, 51, -262146, 327680, 51, -196610, 327680, 51, -131074, 327680, 51, -65538, 327680, 51, -2, 327680, 51, 65534, 327680, 51, 131070, 327680, 51, 196606, 327680, 51, 262142, 327680, 51, 327678, 327680, 51, 393214, 327680, 51, -327681, 327680, 51, -262145, 327680, 51, -196609, 327680, 51, -131073, 327680, 51, -65537, 327680, 51, -1, 327680, 51, 65535, 327680, 51, 131071, 327680, 51, 196607, 327680, 51, 262143, 327680, 51, 327679, 327680, 51, 393215, 327680, 51, -393216, 327680, 51, -327680, 327680, 51, -262144, 327680, 51, -196608, 327680, 51, -131072, 327680, 51, -65536, 327680, 51, 0, 327680, 51, 65536, 327680, 51, 131072, 327680, 51, 196608, 327680, 51, 262144, 327680, 51, 327680, 327680, 51, -393215, 327680, 51, -327679, 327680, 51, -262143, 327680, 51, -196607, 327680, 51, -131071, 327680, 51, -65535, 327680, 51, 1, 327680, 51, 65537, 327680, 51, 131073, 327680, 51, 196609, 327680, 51, 262145, 327680, 51, 327681, 327680, 51, -393214, 327680, 51, -327678, 327680, 51, -262142, 327680, 51, -196606, 327680, 51, -131070, 327680, 51, -65534, 327680, 51, 2, 327680, 51, 65538, 327680, 51, 131074, 327680, 51, 196610, 327680, 51, 262146, 327680, 51, 327682, 327680, 51, -393213, 327680, 51, -327677, 327680, 51, -262141, 327680, 51, -196605, 327680, 51, -131069, 327680, 51, -65533, 327680, 51, 3, 327680, 51, 65539, 327680, 51, 131075, 327680, 51, 196611, 327680, 51, 262147, 327680, 51, 327683, 327680, 51, -393212, 327680, 51, -327676, 327680, 51, -262140, 327680, 51, -196604, 327680, 51, -131068, 327680, 51, -65532, 327680, 51, 4, 327680, 51, 65540, 327680, 51, 131076, 327680, 51, 196612, 327680, 51, 262148, 327680, 51, 327684, 327680, 51, -393211, 327680, 51, -327675, 327680, 51, -262139, 327680, 51, -196603, 327680, 51, -131067, 327680, 51, -65531, 327680, 51, 5, 327680, 51, 65541, 327680, 51, 131077, 327680, 51, 196613, 327680, 51, 262149, 327680, 51, 327685, 327680, 51, -393210, 327680, 51, -327674, 327680, 51, -262138, 327680, 51, -196602, 327680, 51, -131066, 327680, 51, -65530, 327680, 51, 6, 327680, 51, 65542, 327680, 51, 131078, 327680, 51, 196614, 327680, 51, 262150, 327680, 51, 327686, 327680, 51, -393209, 327680, 51, -327673, 327680, 51, -262137, 327680, 51, -196601, 327680, 51, -131065, 327680, 51, -65529, 327680, 51, 7, 327680, 51, 65543, 327680, 51, 131079, 327680, 51, 196615, 327680, 51, 262151, 327680, 51, 327687, 327680, 51, -393208, 327680, 51, -327672, 327680, 51, -262136, 327680, 51, -196600, 327680, 51, -131064, 327680, 51, -65528, 327680, 51, 8, 327680, 51, 65544, 327680, 51, 131080, 327680, 51, 196616, 327680, 51, 262152, 327680, 51, 327688, 327680, 51, -393207, 327680, 51, -327671, 327680, 51, -262135, 327680, 51, -196599, 327680, 51, -131063, 327680, 51, -65527, 327680, 51, 9, 327680, 51, 65545, 327680, 51, 131081, 327680, 51, 196617, 327680, 51, 262153, 327680, 51, 327689, 327680, 51)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(-104, -79)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("3_gdsvu")
+
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(-104, 3)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("3_gdsvu")
+
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(-104, 85)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("3_gdsvu")
+
+[node name="Rope" type="Sprite2D" parent="."]
+position = Vector2(-35, -84)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3v3rq")
+
+[node name="Rope2" type="Sprite2D" parent="."]
+position = Vector2(-35, -21)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3v3rq")
+
+[node name="Rope3" type="Sprite2D" parent="."]
+position = Vector2(55, -84)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3v3rq")
+
+[node name="Rope4" type="Sprite2D" parent="."]
+position = Vector2(55, -21)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3v3rq")
+
+[node name="Items" type="Node2D" parent="."]
+script = ExtResource("5_0qjra")
+
+[node name="WoodenPlank" type="Sprite2D" parent="Items"]
+position = Vector2(87, 52)
+scale = Vector2(2.96875, 2.96875)
+texture = ExtResource("6_iw3qc")
+script = ExtResource("7_0wk4y")
+
+[node name="Area2D" type="Area2D" parent="Items/WoodenPlank"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/WoodenPlank/Area2D"]
+position = Vector2(-3.8147e-06, -0.505262)
+shape = SubResource("RectangleShape2D_51hnl")
+
+[node name="Nail" type="Sprite2D" parent="Items"]
+position = Vector2(123, -45)
+texture = ExtResource("8_y345w")
+script = ExtResource("7_0wk4y")
+
+[node name="Area2D" type="Area2D" parent="Items/Nail"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Nail/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mmmbd")
+
+[node name="Nail2" type="Sprite2D" parent="Items"]
+position = Vector2(103, -45)
+texture = ExtResource("8_y345w")
+script = ExtResource("7_0wk4y")
+
+[node name="Area2D" type="Area2D" parent="Items/Nail2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Nail2/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mmmbd")
+
+[node name="Nail3" type="Sprite2D" parent="Items"]
+position = Vector2(123, -13)
+texture = ExtResource("8_y345w")
+script = ExtResource("7_0wk4y")
+
+[node name="Area2D" type="Area2D" parent="Items/Nail3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Nail3/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mmmbd")
+
+[node name="Nail4" type="Sprite2D" parent="Items"]
+position = Vector2(104, -13)
+texture = ExtResource("8_y345w")
+script = ExtResource("7_0wk4y")
+
+[node name="Area2D" type="Area2D" parent="Items/Nail4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Nail4/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mmmbd")
+
+[node name="AreaForBuilding" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaForBuilding"]
+position = Vector2(9.5, 2.5)
+shape = SubResource("RectangleShape2D_88fox")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="mouse_entered" from="Items/WoodenPlank/Area2D" to="Items/WoodenPlank" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Items/WoodenPlank/Area2D" to="Items/WoodenPlank" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Items/Nail/Area2D" to="Items/Nail" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Items/Nail/Area2D" to="Items/Nail" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Items/Nail2/Area2D" to="Items/Nail2" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Items/Nail2/Area2D" to="Items/Nail2" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Items/Nail3/Area2D" to="Items/Nail3" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Items/Nail3/Area2D" to="Items/Nail3" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Items/Nail4/Area2D" to="Items/Nail4" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Items/Nail4/Area2D" to="Items/Nail4" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="AreaForBuilding" to="." method="_on_area_for_building_area_entered"]
+[connection signal="mouse_entered" from="AreaForBuilding" to="." method="_on_area_for_building_mouse_entered"]
+[connection signal="mouse_exited" from="AreaForBuilding" to="." method="_on_area_for_building_mouse_exited"]

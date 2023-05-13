@@ -8,9 +8,6 @@ func _on_draw():
 	pass
 	
 func _input(event):
-			
-				
-	
 	if event is InputEventMouseMotion:
 		var mouse_event = event as InputEventMouseMotion
 		self.position = get_global_mouse_position()

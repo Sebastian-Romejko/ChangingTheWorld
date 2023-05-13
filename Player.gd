@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 80
+@export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0, 1)
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
-var can_move = true
+var can_move = false
 
 func _ready():
 	update_animation_parameters(starting_direction)
