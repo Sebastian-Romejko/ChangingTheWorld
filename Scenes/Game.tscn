@@ -1,21 +1,39 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2afq3d40552l"]
+[gd_scene load_steps=20 format=3 uid="uid://bdjepp8gmgyd4"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_oyiv1"]
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_oyiv1"]
 [ext_resource type="TileSet" uid="uid://cryiq527h0mb2" path="res://Art/Map.tres" id="2_bs7w0"]
+[ext_resource type="AudioStream" uid="uid://cgyoi5r5jxjlf" path="res://Music/Ambient Music.wav" id="2_flkam"]
 [ext_resource type="PackedScene" uid="uid://duuxv18r4iomq" path="res://Scenes/Player.tscn" id="2_p6scu"]
 [ext_resource type="PackedScene" uid="uid://eaty0j7kc347" path="res://Quests/Quest.tscn" id="3_6bx6n"]
-[ext_resource type="PackedScene" uid="uid://b30un2wr7q785" path="res://Scenes/UI.tscn" id="5_ffj6y"]
+[ext_resource type="PackedScene" uid="uid://da7ayqbdsbs7j" path="res://Scenes/UI/UI.tscn" id="5_ffj6y"]
 [ext_resource type="Texture2D" uid="uid://hq64but87l3t" path="res://Art/Characters/grandma.png" id="5_yieag"]
 [ext_resource type="Texture2D" uid="uid://cj3j0cmfbul44" path="res://Art/16x16-RPG-characters/sprites/old-style/01-generic.png" id="6_6nw5j"]
-[ext_resource type="PackedScene" uid="uid://o2q0laisjmqa" path="res://Scenes/ConfirmationDialog.tscn" id="6_yyqf3"]
-[ext_resource type="PackedScene" uid="uid://dm3g1xxwot8lr" path="res://Scenes/GameOverPanel.tscn" id="7_65icx"]
+[ext_resource type="PackedScene" uid="uid://o2q0laisjmqa" path="res://Scenes/UI/ConfirmationDialog.tscn" id="6_yyqf3"]
 [ext_resource type="Texture2D" uid="uid://cvwjnydgr5hku" path="res://Art/Characters/01-generic.png" id="7_81srv"]
-[ext_resource type="PackedScene" uid="uid://b178p8qoimpjm" path="res://StartPanel.tscn" id="11_wj2in"]
+[ext_resource type="Texture2D" uid="uid://cjyena15iy0ml" path="res://Art/16x16-RPG-characters/sprites/old-style/02-bard.png" id="8_2uo80"]
+[ext_resource type="PackedScene" uid="uid://b178p8qoimpjm" path="res://Scenes/UI/StartPanel.tscn" id="11_wj2in"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/GameOverPanel.tscn" id="12_i6nb0"]
 [ext_resource type="PackedScene" uid="uid://baowe2bfonu8x" path="res://Characters/Businessman.tscn" id="12_s6wnx"]
 [ext_resource type="PackedScene" uid="uid://b70668or61cqh" path="res://Characters/Grandma.tscn" id="13_ixp63"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylas7"]
+size = Vector2(11, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67234"]
+size = Vector2(11, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qekop"]
+size = Vector2(13, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma2im"]
+size = Vector2(13, 16)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_oyiv1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_flkam")
+autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -116,8 +134,28 @@ quest_id = 5
 
 [node name="QuestBuildingSwing" parent="Quests" instance=ExtResource("3_6bx6n")]
 modulate = Color(1.2, 1.2, 1.2, 1)
-position = Vector2(406, -239)
+position = Vector2(142, -258)
 quest_id = 6
+
+[node name="QuestPlantingTrees" parent="Quests" instance=ExtResource("3_6bx6n")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(479, -394)
+quest_id = 7
+
+[node name="QuestBuyWater" parent="Quests" instance=ExtResource("3_6bx6n")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(-282, 232)
+quest_id = 8
+
+[node name="QuestDelivery" parent="Quests" instance=ExtResource("3_6bx6n")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(-537, 352)
+quest_id = 9
+
+[node name="QuestDinner" parent="Quests" instance=ExtResource("3_6bx6n")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(617, -151)
+quest_id = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Quests"]
 position = Vector2(-345, -81)
@@ -126,6 +164,10 @@ hframes = 3
 vframes = 4
 frame = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ylas7")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Quests"]
 position = Vector2(86, 310)
 texture = ExtResource("6_6nw5j")
@@ -133,12 +175,53 @@ hframes = 15
 vframes = 8
 frame = 82
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D2"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_67234")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Quests"]
+position = Vector2(-296, 223)
+texture = ExtResource("6_6nw5j")
+hframes = 15
+vframes = 8
+frame = 61
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D3"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qekop")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Quests"]
+position = Vector2(-571, 371)
+texture = ExtResource("6_6nw5j")
+hframes = 15
+vframes = 8
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D5"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qekop")
+
 [node name="Sprite2D4" type="Sprite2D" parent="Quests"]
 position = Vector2(613, 355)
 texture = ExtResource("7_81srv")
 hframes = 11
 vframes = 11
 frame = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D4"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ma2im")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Quests"]
+position = Vector2(604, -163)
+texture = ExtResource("8_2uo80")
+hframes = 12
+vframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Sprite2D6"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ma2im")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -156,10 +239,10 @@ grow_vertical = 1
 [node name="ConfirmationDialog" parent="CanvasLayer" instance=ExtResource("6_yyqf3")]
 visible = false
 
-[node name="GameOverPanel" parent="CanvasLayer" instance=ExtResource("7_65icx")]
-visible = false
-
 [node name="StartPanel" parent="CanvasLayer" instance=ExtResource("11_wj2in")]
+
+[node name="GameOverPanel" parent="CanvasLayer" instance=ExtResource("12_i6nb0")]
+visible = false
 
 [node name="NPC" type="Node2D" parent="."]
 
@@ -242,6 +325,6 @@ position = Vector2(-238, 80)
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="canceled" from="CanvasLayer/ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="CanvasLayer/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
-[connection signal="start_new_game" from="CanvasLayer/GameOverPanel" to="." method="_on_game_over_panel_start_new_game"]
 [connection signal="start_new_game" from="CanvasLayer/StartPanel" to="." method="_on_start_panel_start_new_game"]
 [connection signal="tree_exited" from="CanvasLayer/StartPanel" to="." method="_on_start_panel_tree_exited"]
+[connection signal="start_new_game" from="CanvasLayer/GameOverPanel" to="." method="_on_game_over_panel_start_new_game"]

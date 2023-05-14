@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmbwvppgpfqgg"]
+[gd_scene load_steps=21 format=3 uid="uid://xjtjjr0ms7sc"]
 
 [ext_resource type="Script" path="res://Quests/WateringFlowers/WateringFlowers.gd" id="1_lf51p"]
 [ext_resource type="Texture2D" uid="uid://b4tshokooae7h" path="res://Art/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="2_sxltm"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Quests/WateringFlowers/WateringCan.gd" id="4_rriml"]
 [ext_resource type="Script" path="res://Quests/WateringFlowers/Flowers.gd" id="5_cw4uv"]
 [ext_resource type="Script" path="res://Quests/WateringFlowers/Flower.gd" id="6_o8iqv"]
-[ext_resource type="PackedScene" uid="uid://b30un2wr7q785" path="res://Scenes/UI.tscn" id="8_ei42h"]
+[ext_resource type="PackedScene" uid="uid://da7ayqbdsbs7j" path="res://Scenes/UI/UI.tscn" id="8_ei42h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1304o"]
 texture = ExtResource("2_sxltm")
@@ -890,7 +890,6 @@ texture = ExtResource("3_jveuk")
 offset = Vector2(9, 4)
 hframes = 2
 vframes = 2
-frame = 3
 script = ExtResource("4_rriml")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WateringCan"]

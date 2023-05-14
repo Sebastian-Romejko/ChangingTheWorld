@@ -4,7 +4,7 @@
 		"scene": "res://Quests/CleaningForest/CleaningForest.tscn",
 		"title": "Forest",
 		"message": "The forest is full of trash... Maybe you can do something about it?\nCost: %s coins\nReward: %s hearts",
-		"cost": 100,
+		"cost": 80,
 		"reward": 40,
 		"is_done": false
 	},
@@ -13,7 +13,7 @@
 		"scene": "res://Quests/WateringFlowers/WateringFlowers.tscn",
 		"title": "Park",
 		"message": "Those flowers are dying! Someone has to give them some water!\nCost: %s coins\nReward: %s hearts",
-		"cost": 70,
+		"cost": 60,
 		"reward": 25,
 		"is_done": false
 	},
@@ -41,7 +41,7 @@
 		"title": "Petition",
 		"message": "Good morning sir! We're running campain that will impose fines on large companies for non-ecological actions. Would you like to sign the  petition?\nCost: %s coins\nReward: %s hearts",
 		"cost": 0,
-		"reward": 5,
+		"reward": 10,
 		"is_done": false
 	},
 	{
@@ -49,8 +49,44 @@
 		"scene": "res://Quests/BuildingSwing/BuildingSwing.tscn",
 		"title": "Swing",
 		"message": "Kids don't have a place where they could play. But you can change that in just a few moments!\nCost: %s coins\nReward: %s hearts",
-		"cost": 60,
+		"cost": 50,
 		"reward": 20,
+		"is_done": false
+	},
+	{
+		"id": 7,
+		"scene": "res://Quests/PlantingTrees/PlantingTrees.tscn",
+		"title": "Planting trees",
+		"message": "Every year there is less trees on earth. Not cool. So maybe we can plant about 10 of them and problem solved I quess.\nCost: %s coins\nReward: %s hearts",
+		"cost": 40,
+		"reward": 12,
+		"is_done": false
+	},
+	{
+		"id": 8,
+		"scene": "",
+		"title": "Water",
+		"message": "Yo, man? Can you hook me up with some H2O? This heat's on fire, you feel me?\nCost: %s coins\nReward: %s hearts",
+		"cost": 20,
+		"reward": 5,
+		"is_done": false
+	},
+	{
+		"id": 9,
+		"scene": "res://Quests/Delivery/Delivery.tscn",
+		"title": "Delivery",
+		"message": "Hey you! We need to deliver this heart for transplant as soon as possible! I really don't know why it was sent via courier... But there's no time to waste. Get in the car!\nCost: %s coins\nReward: %s hearts",
+		"cost": 70,
+		"reward": 35,
+		"is_done": false
+	},
+	{
+		"id": 10,
+		"scene": "",
+		"title": "Dinner",
+		"message": "Good morning boss! Would you be so kind to buy me something to eat? I haven't had anything in my stomach for 2 days...\nCost: %s coins\nReward: %s hearts",
+		"cost": 10,
+		"reward": 10,
 		"is_done": false
 	}
 ]

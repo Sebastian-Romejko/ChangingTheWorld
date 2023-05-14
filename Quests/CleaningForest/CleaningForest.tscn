@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpcj48yq6gy8d"]
+[gd_scene load_steps=14 format=3 uid="uid://4sl6c8x2dswb"]
 
 [ext_resource type="Script" path="res://Quests/CleaningForest/CleaningForest.gd" id="1_p2omm"]
 [ext_resource type="Texture2D" uid="uid://b4tshokooae7h" path="res://Art/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="2_tkbbu"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwk23ls803bho" path="res://Art/items/trash-2.png" id="6_62ymh"]
 [ext_resource type="Texture2D" uid="uid://bkm5dnyqg2mt1" path="res://Art/items/trash_stick.png" id="7_fy3yl"]
 [ext_resource type="Script" path="res://Quests/Scripts/AttachingItems.gd" id="8_6s7rg"]
-[ext_resource type="PackedScene" uid="uid://b30un2wr7q785" path="res://Scenes/UI.tscn" id="9_qc8lf"]
+[ext_resource type="PackedScene" uid="uid://da7ayqbdsbs7j" path="res://Scenes/UI/UI.tscn" id="9_qc8lf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbo6h"]
 texture = ExtResource("2_tkbbu")
@@ -1828,7 +1828,7 @@ size = Vector2(12, 13)
 script = ExtResource("1_p2omm")
 quest_id = 1
 trash_stick = NodePath("TrackStick")
-trash_to_collect = 15
+trash_to_collect = 16
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xe6uy")
@@ -1841,7 +1841,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-131081, 1310720, 50, -131076, 1703936, 32, 65532, 1310720, 48, -65538, 1310720, 50, 65534, 1703936, 32, -196609, 393216, 53, -131073, 393216, 54, -262144, 327680, 53, -196608, 327680, 53, 196608, 393216, 53, 131073, 1310720, 50, 65541, 393216, 54, -65530, 393216, 53, -131065, 327680, 53, 7, 327680, 53, -131064, 327680, 54, -196613, 1310720, 49, 65528, 393216, 53, -131077, 1310720, 48, 327672, 393216, 53, 262137, 1310720, 49, 196602, 1310720, 48, 327675, 1572864, 33, 327676, 1310720, 50, 131072, 327680, 53, -196605, 1310720, 49, -196602, 262144, 53, -327674, 393216, 54, 131077, 1310720, 48, 262149, 1310720, 48, 196615, 393216, 54, 262151, 327680, 54, -65531, 1703936, 33, 2, 393216, 54, 131074, 1310720, 48, -196617, 1703936, 33, -131080, 1572864, 33, -131078, 1572864, 33, 131066, 1572864, 33, -65540, 1703936, 33, -262147, 1703936, 33, -131075, 1572864, 33, -3, 1703936, 33, 131070, 1703936, 33, 262142, 1572864, 33, -196606, 1572864, 33, -65533, 1572864, 33, -327675, 1572864, 33, 8, 1703936, 32, 65544, 1703936, 33, 196616, 1572864, 33, 65530, 1572864, 32, 262139, 1572864, 32, 196606, 1572864, 32, -196611, 1572864, 32, -196614, 1572864, 32, -196616, 1572864, 32, -262142, 1572864, 32, -131069, 1572864, 32, 131080, 1572864, 32, -131067, 1703936, 32, -65539, 1703936, 32, -262153, 1703936, 32, 131076, 1703936, 32, 196612, 1703936, 33, -262136, 1572864, 32, -196600, 1572864, 33, 262135, 1703936, 32, 327671, 1703936, 33, -9, 1703936, 32, 65527, 1703936, 33, -65536, 1572864, 32, 0, 1572864, 33, 196610, 1572864, 32, 262146, 1572864, 33, -65543, 1376256, 49, -262145, 1376256, 48, -196607, 1376256, 50, -131070, 1376256, 49, -131068, 1376256, 50, 262148, 1376256, 48, -327673, 1376256, 50, -327672, 1376256, 48, 131069, 1376256, 48, 131064, 1376256, 48, 196599, 1638400, 10, -327683, 1703936, 32, -393211, 1572864, 32)
+layer_1/tile_data = PackedInt32Array(-131081, 1310720, 50, -131076, 1703936, 32, 65532, 1310720, 48, -65538, 1310720, 50, 65534, 1703936, 32, -196609, 393216, 53, -131073, 393216, 54, -262144, 327680, 53, -196608, 327680, 53, 196608, 393216, 53, 131073, 1310720, 50, 65541, 393216, 54, -65530, 393216, 53, -131065, 327680, 53, 7, 327680, 53, -131064, 327680, 54, -196613, 1310720, 49, 65528, 393216, 53, -131077, 1310720, 48, 327672, 393216, 53, 262137, 1310720, 49, 196602, 1310720, 48, 327675, 1572864, 33, 327676, 1310720, 50, 131072, 327680, 53, -196605, 1310720, 49, -196602, 262144, 53, -327674, 393216, 54, 131077, 1310720, 48, 262149, 1310720, 48, 196615, 393216, 54, 262151, 327680, 54, -65531, 1703936, 33, 2, 393216, 54, 131074, 1310720, 48, -196617, 1703936, 33, -131080, 1572864, 33, -131078, 1572864, 33, 131066, 1572864, 33, -65540, 1703936, 33, -262147, 1703936, 33, -131075, 1572864, 33, -3, 1703936, 33, 131070, 1703936, 33, 262142, 1572864, 33, -196606, 1572864, 33, -65533, 1572864, 33, -327675, 1572864, 33, 8, 1703936, 32, 65544, 1703936, 33, 196616, 1572864, 33, 65530, 1572864, 32, 262139, 1572864, 32, 196606, 1572864, 32, -196611, 1572864, 32, -196614, 1572864, 32, -196616, 1572864, 32, -262142, 1572864, 32, -131069, 1572864, 32, 131080, 1572864, 32, -131067, 1703936, 32, -65539, 1703936, 32, -262153, 1703936, 32, 131076, 1703936, 32, 196612, 1703936, 33, -262136, 1572864, 32, -196600, 1572864, 33, 262135, 1703936, 32, 327671, 1703936, 33, -9, 1703936, 32, 65527, 1703936, 33, -65536, 1572864, 32, 0, 1572864, 33, 196610, 1572864, 32, 262146, 1572864, 33, -65543, 1376256, 49, -262145, 1376256, 48, -196607, 1376256, 50, -131070, 1376256, 49, -131068, 1376256, 50, 262148, 1376256, 48, -327673, 1376256, 50, -327672, 1376256, 48, 131069, 1376256, 48, 131064, 1376256, 48, -327683, 1703936, 32, -393211, 1572864, 32, 1, 1638400, 10)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -2038,6 +2038,17 @@ script = ExtResource("5_w2muv")
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_fmx7f")
 
+[node name="Trash-34" type="Sprite2D" parent="Trash"]
+position = Vector2(-133, 38)
+texture = ExtResource("6_62ymh")
+script = ExtResource("5_w2muv")
+
+[node name="Area2D" type="Area2D" parent="Trash/Trash-34"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Trash-34/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_fmx7f")
+
 [node name="TrackStick" type="Sprite2D" parent="." node_paths=PackedStringArray("attachable_objects")]
 position = Vector2(0, 1)
 texture = ExtResource("7_fy3yl")
@@ -2046,7 +2057,7 @@ script = ExtResource("8_6s7rg")
 attachable_objects = NodePath("../Trash")
 
 [node name="TrashBin" type="Area2D" parent="."]
-position = Vector2(-136, 39)
+position = Vector2(24, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrashBin"]
 position = Vector2(0, 1.5)
@@ -2066,6 +2077,7 @@ grow_horizontal = 1
 grow_vertical = 1
 mouse_filter = 1
 show_only_time = true
+metadata/_edit_use_anchors_ = true
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="ready" from="Trash" to="Trash" method="_on_ready"]
@@ -2103,6 +2115,8 @@ show_only_time = true
 [connection signal="mouse_exited" from="Trash/Trash-32/Area2D" to="Trash/Trash-32" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Trash/Trash-33/Area2D" to="Trash/Trash-33" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Trash/Trash-33/Area2D" to="Trash/Trash-33" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Trash/Trash-34/Area2D" to="Trash/Trash-34" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Trash/Trash-34/Area2D" to="Trash/Trash-34" method="_on_area_2d_mouse_exited"]
 [connection signal="draw" from="TrackStick" to="TrackStick" method="_on_draw"]
 [connection signal="mouse_entered" from="TrashBin" to="." method="_on_trash_bin_mouse_entered"]
 [connection signal="mouse_exited" from="TrashBin" to="." method="_on_trash_bin_mouse_exited"]

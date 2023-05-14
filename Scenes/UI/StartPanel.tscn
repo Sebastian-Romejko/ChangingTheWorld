@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://b178p8qoimpjm"]
+
+[ext_resource type="Script" path="res://Scenes/UI/StartPanel.gd" id="1_auf6t"]
+[ext_resource type="Theme" uid="uid://b3rw843am1p5l" path="res://Art/UI/Button.tres" id="2_fu4xh"]
+[ext_resource type="Texture2D" uid="uid://mhhyceu6tycr" path="res://Art/UI/exclamation-mark-static.png" id="3_oolbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2f1x"]
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dyiv1"]
+font_size = 35
+
+[node name="StartPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_auf6t")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 651.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2f1x")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 211.0
+offset_top = 42.0
+offset_right = 970.0
+offset_bottom = 534.0
+text = "Money isn't everything...
+and you've got like 2 minutes to prove that.
+
+
+
+Find these markers, collect hearts and get rid of coins.
+
+Clock is ticking..."
+label_settings = SubResource("LabelSettings_dyiv1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Button" type="Button" parent="Panel"]
+visible = false
+layout_mode = 2
+offset_left = 495.0
+offset_top = 539.0
+offset_right = 681.0
+offset_bottom = 642.0
+theme = ExtResource("2_fu4xh")
+text = "START"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+clip_contents = true
+layout_mode = 0
+offset_left = 532.0
+offset_top = 198.0
+offset_right = 634.0
+offset_bottom = 300.0
+texture = ExtResource("3_oolbm")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

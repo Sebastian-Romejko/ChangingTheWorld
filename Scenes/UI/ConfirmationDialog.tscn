@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://o2q0laisjmqa"]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+position = Vector2i(300, 150)
+size = Vector2i(300, 100)
+visible = true
+popup_window = true
+min_size = Vector2i(300, 70)
+max_size = Vector2i(400, 32768)
+content_scale_size = Vector2i(1, 1)
+dialog_autowrap = true
